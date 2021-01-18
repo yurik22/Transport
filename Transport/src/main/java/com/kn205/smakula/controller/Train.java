@@ -12,6 +12,15 @@ public class Train implements movable{
     private static int numOfPassengers = 0;
     private static int numOfLuggage = 0;
 
+
+    public int getNumOfPassengers() {
+        return numOfPassengers;
+    }
+
+    public int getNumOfLuggage() {
+        return numOfLuggage;
+    }
+
     public void addWagon(Wagon wagon){
         wagons.add(wagon);
         numOfPassengers += wagon.getAmountOfPassengers();
@@ -42,8 +51,8 @@ public class Train implements movable{
 //        return false;
 //    }
 
-
-    public void sortWagons(){   // TODO: 18.01.2021 sort this shit
+    // TODO: 18.01.2021 sort this shit
+    public void sortWagons(){
 
     }
 
@@ -61,4 +70,7 @@ public class Train implements movable{
             wagon.move();
         }
     }
+
+
+
 }
