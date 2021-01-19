@@ -1,13 +1,25 @@
 package com.kn205.smakula.menu;
 
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
+
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class MainMenu {
 
+    //  private static final Logger log = Logger.getLogger(OrderLogic.class);
+
+    //String log4jConfPath = "D:\\java_projects\\Transport\\Transport\\src\\main\\java\\resources/log4j.properties";
+    // PropertyConfigurator.configure(log4jConfPath);
+    public static final Logger log = Logger.getLogger(MainMenu.class);
+
+
     Map<String, MenuItem> items;
 
-    public MainMenu(){
+    public MainMenu() {
+
+        log.info("Menu created");
         items = new LinkedHashMap<>();
 
         items.put("help", new HelpCommand());
@@ -22,14 +34,16 @@ public class MainMenu {
         items.put("exit", new ExitCommand());
     }
 
-    public void execute(String command){
-        if(items.containsKey(command)) {
+    public void execute(String command) {
+
+        if (items.containsKey(command)) {
+            log.info("Executing command: " + command);
             items.get(command).execute();
-        }else {
+        } else {
+            log.error("Undefined command: " + command);
             System.out.println("Undefined command!");
         }
     }
-
 
 
 }

@@ -5,12 +5,14 @@ import com.kn205.smakula.model.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.kn205.smakula.menu.MainMenu.log;
+
 public class Train implements movable{
 
     private Locomotive locomotive = new Locomotive(1000, 140, 5);
     private List<Wagon> wagons = new ArrayList<>();
-    private static int numOfPassengers = 0;
-    private static int numOfLuggage = 0;
+    private int numOfPassengers = 0;
+    private int numOfLuggage = 0;
 
 
     public int getNumOfPassengers() {
@@ -25,6 +27,7 @@ public class Train implements movable{
         wagons.add(wagon);
         numOfPassengers += wagon.getAmountOfPassengers();
         numOfLuggage += wagon.getLuggage();
+        log.info("Wagon added: \t " + wagon.toString());
     }
 
     public boolean delWagon(int id){
@@ -33,9 +36,12 @@ public class Train implements movable{
                 numOfPassengers -= wagons.get(i).getAmountOfPassengers();
                 numOfLuggage -= wagons.get(i).getLuggage();
                 wagons.remove(i);
+
+                log.info("Wagon " + id + " deleted");
                 return true;
             }
         }
+        log.error("Tried to delete wagon with id " + id);
         return false;
     }
 

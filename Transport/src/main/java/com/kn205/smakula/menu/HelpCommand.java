@@ -1,5 +1,7 @@
 package com.kn205.smakula.menu;
 
+import static com.kn205.smakula.menu.MainMenu.log;
+
 public class HelpCommand implements com.kn205.smakula.menu.MenuItem {
     @Override
     public void execute() {
