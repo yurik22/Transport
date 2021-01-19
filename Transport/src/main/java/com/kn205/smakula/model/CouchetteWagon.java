@@ -23,16 +23,8 @@ public class CouchetteWagon extends Wagon {
         System.out.println("^Скрип^");
     }
 
-    @Override
-    public String toString() {
-        return "Couchette wagon{" +
-                "ID=" + ID +
-                ", maxPassengers=" + maxPassengers +
-                ", amountOfPassengers=" + amountOfPassengers +
-                ", maxLuggage=" + maxLuggage +
-                ", luggage=" + luggage +
-                ", comfortIndex=" + comfortIndex +
-                '}';
+    protected String getWagonType(){
+        return "Couchette";
     }
 
 }

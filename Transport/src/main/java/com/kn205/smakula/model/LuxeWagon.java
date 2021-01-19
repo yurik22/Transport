@@ -12,16 +12,8 @@ public class LuxeWagon extends Wagon {
         System.out.println("^Музика^");
     }
 
-    @Override
-    public String toString() {
-        return "Luxe wagon{" +
-                "ID=" + ID +
-                ", maxPassengers=" + maxPassengers +
-                ", amountOfPassengers=" + amountOfPassengers +
-                ", maxLuggage=" + maxLuggage +
-                ", luggage=" + luggage +
-                ", comfortIndex=" + comfortIndex +
-                '}';
+    protected String getWagonType(){
+        return "Luxe\t";
     }
 
 }

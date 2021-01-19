@@ -4,8 +4,6 @@ public abstract class Wagon implements movable {
 
 
     protected int ID;
-    protected int maxPassengers;
-    protected int maxLuggage;
     protected int amountOfPassengers;
     protected int luggage;
     protected int comfortIndex;
@@ -18,8 +16,6 @@ public abstract class Wagon implements movable {
         this.amountOfPassengers = amountOfPassengers;
         this.luggage = luggage;
     }
-
-
 
     public void setComfortIndex(int comfortIndex){
         this.comfortIndex = comfortIndex;
@@ -39,5 +35,16 @@ public abstract class Wagon implements movable {
 
     public int getComfortIndex() {
         return comfortIndex;
+    }
+
+    protected abstract String getWagonType();
+
+    public String toString() {
+        return this.getWagonType()+" wagon\t\t{" +
+                "ID=" + ID +
+                ", amountOfPassengers=" + amountOfPassengers +
+                ", luggage=" + luggage +
+                ", comfortIndex=" + comfortIndex +
+                '}';
     }
 }

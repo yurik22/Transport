@@ -59,7 +59,16 @@ public class Train implements movable{
 
     // TODO: 18.01.2021 sort this shit
     public void sortWagons(){
+        wagons.sort(new WagonComfortComparator());
+    }
 
+    public void showWagonsByIntervalOfPassengersAmount(int min, int max){
+        for (Wagon w : wagons){
+            int amountOfPassengers = w.getAmountOfPassengers();
+            if(amountOfPassengers >= min && amountOfPassengers <= max){
+                System.out.println(w.toString());
+            }
+        }
     }
 
     public void showTrain(){

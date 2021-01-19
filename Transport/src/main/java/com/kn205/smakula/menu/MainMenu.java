@@ -1,19 +1,14 @@
 package com.kn205.smakula.menu;
 
 import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class MainMenu {
 
-    //  private static final Logger log = Logger.getLogger(OrderLogic.class);
 
-    //String log4jConfPath = "D:\\java_projects\\Transport\\Transport\\src\\main\\java\\resources/log4j.properties";
-    // PropertyConfigurator.configure(log4jConfPath);
     public static final Logger log = Logger.getLogger(MainMenu.class);
-
 
     Map<String, MenuItem> items;
 
@@ -29,7 +24,7 @@ public class MainMenu {
         items.put("luggage", new getAmountOfLuggageCommand());
         items.put("passengers", new getAmountOfPassengersCommand());
         items.put("sort", new sortWagonsByComfortIndexCommand());
-        items.put("interval", new getWagonsByIntervalOfPassengersAmountCommand());
+        items.put("interval", new showWagonsByIntervalOfPassengersAmountCommand());
         items.put("show", new ShowTrainCommand());
         items.put("exit", new ExitCommand());
     }
