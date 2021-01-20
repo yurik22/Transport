@@ -24,13 +24,13 @@ public class App
 
         train.addWagon(new CoupeWagon(1,250,1500));
         train.addWagon(new CouchetteWagon(2,350,1400));
-        train.addWagon(new CouchetteWagon(2,400,1400));
-        train.addWagon(new CouchetteWagon(2,370,1400));
-        train.addWagon(new CouchetteWagon(2,360,1400));
-        train.addWagon(new CouchetteWagon(2,390,1400));
-        train.addWagon(new CoupeWagon(3,200,1200));
-        train.addWagon(new LuxeWagon(4,120,1300));
-        train.addWagon(new LuxeWagon(5,110,1100));
+        train.addWagon(new CouchetteWagon(3,400,1400));
+        train.addWagon(new CouchetteWagon(4,370,1400));
+        train.addWagon(new CouchetteWagon(5,360,1400));
+        train.addWagon(new CouchetteWagon(6,390,1400));
+        train.addWagon(new CoupeWagon(7,200,1200));
+        train.addWagon(new LuxeWagon(8,120,1300));
+        train.addWagon(new LuxeWagon(9,110,1100));
 
 
         while(true){
