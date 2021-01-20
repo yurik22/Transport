@@ -32,8 +32,8 @@ public class Train implements movable {
 
                 log.error("ID duplicating: " + wagon.getID());
                 try {
-                    GoogleMail.Send("smakulayura",
-                                                                                                                                                                   "30122001Yu",
+                    GoogleMail.Send("kn.205.transport",
+                            "123456Yurii",
                             "yurii.smakula.knm.2019@lpnu.ua",
                             "Transport ERROR!",
                             "ID duplicating: " + wagon.getID()+"\n first wagon - "
