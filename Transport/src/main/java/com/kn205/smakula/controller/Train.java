@@ -1,13 +1,10 @@
 package com.kn205.smakula.controller;
 
-import com.kn205.smakula.menu.MainMenu;
 import com.kn205.smakula.model.*;
 import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.kn205.smakula.menu.MainMenu.log;
 
 public class Train implements movable {
 
@@ -27,7 +24,9 @@ public class Train implements movable {
         return numOfLuggage;
     }
 
-    public void addWagon(Wagon wagon) {
+    public boolean addWagon(Wagon wagon) {
+        boolean res = true;
+
         for (Wagon w : wagons) {
             if (w.getID() == wagon.getID()) {
 
@@ -42,12 +41,14 @@ public class Train implements movable {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+                res = false;
             }
         }
         wagons.add(wagon);
         numOfPassengers += wagon.getAmountOfPassengers();
         numOfLuggage += wagon.getLuggage();
         log.info("Wagon added: \t " + wagon.toString());
+        return res;
     }
 
 //    public boolean delWagon(int id){
