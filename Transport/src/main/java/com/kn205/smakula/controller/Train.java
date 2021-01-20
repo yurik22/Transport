@@ -1,6 +1,8 @@
 package com.kn205.smakula.controller;
 
+import com.kn205.smakula.menu.MainMenu;
 import com.kn205.smakula.model.*;
+import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +15,8 @@ public class Train implements movable {
     private List<Wagon> wagons = new ArrayList<>();
     private int numOfPassengers = 0;
     private int numOfLuggage = 0;
+
+    private final Logger log = Logger.getLogger(Train.class);
 
 
     public int getNumOfPassengers() {
@@ -29,11 +33,12 @@ public class Train implements movable {
 
                 log.error("ID duplicating: " + wagon.getID());
                 try {
-                    GoogleMail.Send("smakulayura", // нижче пароль
+                    GoogleMail.Send("smakulayura",
                                                                                                                                                                    "30122001Yu",
                             "yurii.smakula.knm.2019@lpnu.ua",
-                            "Transport ERROR",
-                            "ID duplicating: " + wagon.getID());
+                            "Transport ERROR!",
+                            "ID duplicating: " + wagon.getID()+"\n first wagon - "
+                                    + w.toString()+"\n second wagon - "+wagon.toString());
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -93,8 +98,16 @@ public class Train implements movable {
         }
     }
 
-    public void setComfortIndex(int ID, int index) {
-
+    public boolean setComfortIndex(int ID, int cIndex) {
+        for(Wagon w : wagons){
+            if(w.getID() == ID){
+                w.setComfortIndex(cIndex);
+                log.info("New comfort index: "+w.toString());
+                return true;
+            }
+        }
+        log.error("setComfortIndex to non-existing wagon (ID "+ID+")");
+        return false;
     }
 
     @Override

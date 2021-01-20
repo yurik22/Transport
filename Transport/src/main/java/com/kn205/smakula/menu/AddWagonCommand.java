@@ -14,7 +14,6 @@ public class AddWagonCommand implements MenuItem {
     @Override
     public void execute() {
         Scanner scan = new Scanner(System.in);
-        int type;
         int ID;
         int passengers;
         int luggage;
@@ -32,9 +31,15 @@ public class AddWagonCommand implements MenuItem {
         System.out.println("1 - couchette");
         System.out.println("2 - coupe");
         System.out.println("3 - luxe");
-        System.out.println("Enter wagon type: ");
 
-        switch (scan.nextInt()){
+        int key = 0;
+
+        while(key < 1 || key > 3){
+            System.out.println("Enter wagon type: ");
+            key = scan.nextInt();
+        }
+
+        switch (key){
             case 1:
                 train.addWagon(new CouchetteWagon(ID, passengers, luggage));
                 break;
@@ -48,10 +53,6 @@ public class AddWagonCommand implements MenuItem {
                 System.out.println("Wrong symbol");
         }
 
-
-
-
-
-
     }
+
 }

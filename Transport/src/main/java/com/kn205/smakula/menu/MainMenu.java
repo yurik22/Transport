@@ -26,6 +26,7 @@ public class MainMenu {
         items.put("sort", new sortWagonsByComfortIndexCommand());
         items.put("interval", new showWagonsByIntervalOfPassengersAmountCommand());
         items.put("show", new ShowTrainCommand());
+        items.put("set", new setComfortIndexCommand());
         items.put("exit", new ExitCommand());
     }
 
@@ -40,5 +41,9 @@ public class MainMenu {
         }
     }
 
-
+    @Override
+    protected void finalize() throws Throwable {
+        log.info("Menu deleted");
+        super.finalize();
+    }
 }
