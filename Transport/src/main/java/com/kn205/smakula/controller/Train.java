@@ -114,9 +114,21 @@ public class Train implements movable {
     @Override
     public void move() {
         locomotive.move();
+        List<Integer> wagonsToDelete = new ArrayList<>();
         for (Wagon wagon : wagons) {
             wagon.move();
+            if(wagon.getComfortIndex() <= 0){
+                wagonsToDelete.add(wagon.getID());
+            }
         }
+
+
+
+        for(Integer ID : wagonsToDelete) {
+            delWagon(ID);
+        }
+  //      wagons.removeIf(wagon -> wagon.getComfortIndex() <= 0);
+
     }
 
 

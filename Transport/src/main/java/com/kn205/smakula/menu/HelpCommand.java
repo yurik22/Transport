@@ -7,6 +7,7 @@ public class HelpCommand implements com.kn205.smakula.menu.MenuItem {
     public void execute() {
 
         System.out.println("Available commands: ");
+        System.out.println("read - initialize from file");
         System.out.println("add - add new wagon");
         System.out.println("del - del existing wagon");
         System.out.println("move - move train");

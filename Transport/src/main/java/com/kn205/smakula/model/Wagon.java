@@ -39,6 +39,10 @@ public abstract class Wagon implements movable {
 
     protected abstract String getWagonType();
 
+    protected void reduceComfortIndex(int i){
+        comfortIndex -= i;
+    }
+
     public String toString() {
         return this.getWagonType()+" wagon\t\t{" +
                 "ID=" + ID +

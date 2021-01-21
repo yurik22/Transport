@@ -10,6 +10,8 @@ public class LuxeWagon extends Wagon {
     @Override
     public void move() {
         System.out.println("^Музика^");
+        this.reduceComfortIndex(5);
+
     }
 
     protected String getWagonType(){

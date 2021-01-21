@@ -6,7 +6,6 @@ public class Locomotive implements movable {
     private int maxSpeed;
     private double fuelConsumption;
 
-    public Locomotive(){};
 
     public Locomotive(int power, int maxSpeed, int fuelConsumption){
         this.power = power;

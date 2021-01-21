@@ -11,6 +11,8 @@ public class CoupeWagon extends Wagon {
     @Override
     public void move() {
         System.out.println("^Чухчух-чухчух^");
+        this.reduceComfortIndex(5);
+
     }
 
     protected String getWagonType(){

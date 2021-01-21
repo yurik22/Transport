@@ -15,7 +15,7 @@ public class showWagonsByIntervalOfPassengersAmountCommand implements MenuItem {
         System.out.println("Enter maximum passengers amount: ");
         int max = scan.nextInt();
 
-        train.showWagonsByIntervalOfPassengersAmount(min,max);
+        train.showWagonsByIntervalOfPassengersAmount(min, max);
 
     }
 }
