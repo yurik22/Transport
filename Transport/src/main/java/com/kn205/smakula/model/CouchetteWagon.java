@@ -18,7 +18,7 @@ public class CouchetteWagon extends Wagon {
     }
 
     protected String getWagonType(){
-        return "Couchette";
+        return "Couch";
     }
 
 }
