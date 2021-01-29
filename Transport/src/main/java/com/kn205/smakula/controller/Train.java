@@ -3,18 +3,24 @@ package com.kn205.smakula.controller;
 import com.kn205.smakula.model.*;
 import org.apache.log4j.Logger;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Train implements movable {
+public class Train implements movable, Serializable {
 
     private Locomotive locomotive = new Locomotive(1000, 140, 5);
     private List<Wagon> wagons = new ArrayList<>();
     private int numOfPassengers = 0;
     private int numOfLuggage = 0;
 
-    private final Logger log = Logger.getLogger(Train.class);
 
+
+    private static transient Logger log = Logger.getLogger(Train.class);
+
+//    static{
+//        log = Logger.getLogger(Train.class);
+//    }
 
     public int getNumOfPassengers() {
         return numOfPassengers;
@@ -130,6 +136,8 @@ public class Train implements movable {
   //      wagons.removeIf(wagon -> wagon.getComfortIndex() <= 0);
 
     }
+
+
 
 
 }

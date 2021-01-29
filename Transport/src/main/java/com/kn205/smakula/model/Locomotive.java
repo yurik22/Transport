@@ -1,6 +1,8 @@
 package com.kn205.smakula.model;
 
-public class Locomotive implements movable {
+import java.io.Serializable;
+
+public class Locomotive implements movable, Serializable {
 
     private int power;
     private int maxSpeed;

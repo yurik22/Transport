@@ -27,7 +27,8 @@ public class MainMenu {
         items.put("interval", new showWagonsByIntervalOfPassengersAmountCommand());
         items.put("show", new ShowTrainCommand());
         items.put("set", new setComfortIndexCommand());
-        items.put("file", new ReadFromFileCommand());
+        items.put("fwrite", new WriteToFileCommand());
+        items.put("fread", new ReadFromFileCommand());
         items.put("exit", new ExitCommand());
     }
 

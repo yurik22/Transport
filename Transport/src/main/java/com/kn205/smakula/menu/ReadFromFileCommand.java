@@ -1,13 +1,10 @@
 package com.kn205.smakula.menu;
 
-import com.kn205.smakula.model.CouchetteWagon;
-import com.kn205.smakula.model.CoupeWagon;
-import com.kn205.smakula.model.LuxeWagon;
+import com.kn205.smakula.controller.Train;
 import org.apache.log4j.Logger;
 
-import java.util.Scanner;
-import java.io.File;  // Import the File class
-import java.io.FileNotFoundException;
+import java.io.*;
+
 import static com.kn205.smakula.App.train;
 
 
@@ -18,96 +15,34 @@ public class ReadFromFileCommand implements MenuItem {
     @Override
     public void execute() {
 
-        int type = 0;
-        int ID = 0;
-        int passengers = 0;
-        int leggage = 0;
+
+//        try{
+//            OutputStream object = new FileOutputStream("D:\\Transport_logs\\init2.txt");
+//            ObjectOutputStream out = new ObjectOutputStream(object);
+//            out.writeObject(train);
+//        } catch (Exception e) {
+//            log.error(e.getMessage());
+//            e.printStackTrace();
+//        }
 
         try {
-            File file = new File("D:\\Transport_logs\\init.txt");
-            Scanner myReader = new Scanner(file);
-            while (myReader.hasNextLine()) {
-                String data = myReader.nextLine();
 
-                String temp = "";
-                type = (int)data.toCharArray()[0] - 48;
-                for(int i = 0; i < data.toCharArray().length; i++){
-                    int probil = 0;
+            FileInputStream fileIn = new FileInputStream("D:\\\\Transport_logs\\\\init2.txt");
+            ObjectInputStream objectIn = new ObjectInputStream(fileIn);
 
-                    if(data.toCharArray()[i] == ' ' && probil == 0){
-                        temp = "";
-                        for(int j = i+1; j < data.toCharArray().length; j++){
-                            if(data.toCharArray()[j] == ' '){
-                                i = j;
-                                break;
-                            }
-                            temp += data.toCharArray()[j];
+            train = (Train)objectIn.readObject();
 
-                        }
-                        ID = Integer.parseInt(temp);
-                        probil++;
+            System.out.println("The Object has been read from the file");
+            objectIn.close();
 
-                    }
-
-
-                    if(data.toCharArray()[i] == ' ' && probil == 1){ // passengers
-                        temp = "";
-                        for(int j = i+1; j < data.toCharArray().length; j++){
-                            if(data.toCharArray()[j] == ' '){
-                                i = j;
-                                break;
-                            }
-                            temp += data.toCharArray()[j];
-
-                        }
-                        passengers = Integer.parseInt(temp);
-                        probil++;
-                    }
-
-                    if(data.toCharArray()[i] == ' ' && probil == 2){
-                        temp = "";
-                        for(int j = i+1; j < data.toCharArray().length; j++){
-                            if(data.toCharArray()[j] == ' '){
-                                i = j;
-                                break;
-                            }
-                            temp += data.toCharArray()[j];
-
-                        }
-                        leggage = Integer.parseInt(temp);
-                        probil++;
-                    }
-
-
-
-
-                }
-
-                switch (type){
-                    case 1:
-                        train.addWagon(new CouchetteWagon(ID, passengers,leggage));
-                        break;
-
-                    case 2:
-                        train.addWagon(new CoupeWagon(ID, passengers, leggage));
-                        break;
-
-                    case 3:
-                        train.addWagon(new LuxeWagon(ID, passengers, leggage));
-                        break;
-                }
-
-//                System.out.println(data);
-            }   // this shit rly works...
-
-            myReader.close();
-
-        } catch (FileNotFoundException e) {
-            log.error("FileNotFoundException");
-            System.out.println("An error occurred.");
+        } catch (Exception e) {
             e.printStackTrace();
         }
+        
+
+
+
+
 
     }
-
 }

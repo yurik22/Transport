@@ -1,13 +1,15 @@
 package com.kn205.smakula.model;
 
-public abstract class Wagon implements movable {
+import java.io.Serializable;
+import java.util.Comparator;
+
+public abstract class Wagon implements movable, Serializable {
 
 
     protected int ID;
     protected int amountOfPassengers;
     protected int luggage;
     protected int comfortIndex;
-
 
     public Wagon(){};
 
